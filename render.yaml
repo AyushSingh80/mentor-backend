@@ -4,7 +4,11 @@ services:
     runtime: node
     plan: free
     rootDir: server
-    buildCommand: npm ci && npm run build
+    # --include=dev is required, not defensive. NODE_ENV=production makes npm
+    # skip devDependencies, and tsc plus every @types/* package lives there —
+    # so a plain `npm ci` installs a tree that cannot compile itself. The
+    # runtime does not need them; the build does.
+    buildCommand: npm ci --include=dev && npm run build
     startCommand: npm start
     healthCheckPath: /health
     envVars:
