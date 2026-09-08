@@ -262,3 +262,62 @@ resets to zero, Blocker 1 is not actually fixed and the cap is not real.
   totals to anyone with the URL. That is a deliberate trade so uptime probes and
   the app's wake-ping work without carrying the token. If the URL becomes
   public, move `caps` behind auth and leave liveness open.
+
+
+---
+
+## The Render config, and what is deliberately NOT in it
+
+`render.yaml` at the repo root is minimal on purpose. A Blueprint that a parser
+rejects is worse than a plain one — the failure is "An error occurred" with no
+line number, and every explanatory comment is another thing that might be the
+cause. The reasoning lives here instead.
+
+### Fields left out, and why
+
+- **`numInstances`** — the free plan rejects it and is fixed at one anyway. But
+  one instance is a CORRECTNESS requirement, not a cost one: `tryReserve` and
+  `releaseReservation` are read-modify-write against a single document with no
+  compare-and-swap, so two instances can each read $20 spent, each reserve $8,
+  and each write back $28 — recording $36 of real spend as $28. **If this ever
+  moves to a paid plan, set `numInstances: 1` in the same change.**
+- **`region`** — Render picks a default. Naming one that a plan does not offer
+  is a Blueprint error with no useful message.
+- **`GEMINI_API_KEY` / `MODEL_EVALUATION` / `GROQ_API_KEY` / `MODEL_BULK`** —
+  added in the dashboard after the first deploy, not declared here. A `sync:
+  false` var with nothing to sync is one more thing that can fail validation
+  before anything has been built.
+
+### Set in the dashboard after the first deploy
+
+| Key | Value |
+|---|---|
+| `PROVIDER_BULK` | `groq` |
+| `GROQ_API_KEY` | your Groq key |
+| `MODEL_BULK` | `openai/gpt-oss-120b` |
+| `PROVIDER_EVALUATION` | `gemini` — only once you have a key |
+| `GEMINI_API_KEY` | from aistudio.google.com/apikey |
+| `MODEL_EVALUATION` | `gemini-2.5-flash` |
+
+A tier with NEITHER a key nor a model is a supported state: its routes answer
+503 and everything else runs. A tier with one of the two refuses to boot, and
+the message names the missing variable — see the per-tier assertion in
+`config.ts`.
+
+`NODE_ENV=production` is load-bearing rather than conventional: `index.ts`
+refuses to start with `EVAL_RUNNER=fake` under it, so a scripted runner can
+never serve invented marks to a real study session.
+
+### If the Blueprint still errors
+
+Use **New → Web Service** instead and set the same fields by hand:
+
+- Repository: the private repo, branch `main`
+- Root directory: `server`
+- Build: `npm ci && npm run build`
+- Start: `npm start`
+- Health check path: `/health`
+- Instance type: Free
+
+The manual path validates each field as you type it, so a rejection names the
+field rather than the file. `render.yaml` is a convenience, not a requirement.
