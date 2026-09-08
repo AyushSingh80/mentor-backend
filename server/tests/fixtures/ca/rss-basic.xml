@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>PIB Press Releases</title>
+    <link>https://www.pib.gov.in/</link>
+    <description>Press releases from the Press Information Bureau</description>
+    <language>en-in</language>
+    <item>
+      <title><![CDATA[Cabinet approves the National Tribal Health Mission]]></title>
+      <link>https://pib.gov.in/PressReleasePage.aspx?PRID=2012345&amp;utm_source=rss&amp;utm_medium=feed&amp;fbclid=IwAR9</link>
+      <description><![CDATA[<p>The Union Cabinet has approved an outlay of &#8377;1,200 crore.</p>]]></description>
+      <pubDate>Thu, 12 Mar 2026 09:30:00 +0530</pubDate>
+      <guid isPermaLink="false">pib-2012345</guid>
+    </item>
+    <item>
+      <title>RBI &amp; the Monetary Policy Committee &#8212; February review</title>
+      <description>The repo rate was left unchanged at 6.25 per cent.</description>
+      <pubDate>Wed, 11 Feb 2026 17:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://pib.gov.in/PressReleasePage.aspx?PRID=2011900</guid>
+    </item>
+    <item>
+      <title>Cabinet approves the National Tribal Health Mission (syndicated copy)</title>
+      <link>https://WWW.pib.gov.in/PressReleasePage.aspx?PRID=2012345&amp;ref=twitter&amp;spm=abc</link>
+      <description>A second link to the same release, arriving with different tracking.</description>
+      <pubDate>Thu, 12 Mar 2026 11:05:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>An item with no usable link at all</title>
+      <description>Should be skipped rather than fetched.</description>
+      <guid isPermaLink="false">pib-no-link</guid>
+    </item>
+  </channel>
+</rss>

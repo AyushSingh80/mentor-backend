@@ -1,0 +1,32 @@
+{
+  "name": "upsc-mentor-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Backend for the UPSC mentor app. Holds the Anthropic key, serves versioned rubrics, enforces spend caps.",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json && mkdir -p dist/rubrics dist/mcq/prompts dist/ca/prompts dist/drills/prompts dist/interview/prompts && cp src/rubrics/*.md dist/rubrics/ && cp src/mcq/prompts/*.md dist/mcq/prompts/ && cp src/ca/prompts/*.md dist/ca/prompts/ && cp src/ca/sources.json dist/ca/ && cp src/drills/prompts/*.md dist/drills/prompts/ && cp src/interview/prompts/*.md dist/interview/prompts/",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tests/tsconfig.json",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "dev:fake": "EVAL_RUNNER=fake tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.124.0",
+    "express": "^5.2.1",
+    "multer": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.2.0",
+    "@types/node": "^24.10.0",
+    "@types/supertest": "^7.2.1",
+    "supertest": "^7.2.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

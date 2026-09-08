@@ -1,0 +1,16 @@
+# Repo-root ignores. The per-package .gitignore files cover the rest.
+
+# Secrets never enter the repo. The provider API key lives on the server host
+# and nowhere else — if it ever reaches the phone it can be pulled out of the
+# APK, which is the one unrecoverable mistake in this architecture.
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+
+node_modules/
+
+# Machine-specific SDK path. Written by the build, differs per machine.
+app/android/local.properties

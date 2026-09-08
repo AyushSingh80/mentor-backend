@@ -1,0 +1,26 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@/assets/*": [
+        "./assets/*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ],
+  "//": "`tools` is excluded for the same reason `tests` is, and is typechecked by tests/tsconfig.json alongside them: both run under Node rather than React Native, and letting Node's globals into the app's own typecheck is how `node:fs` ends up in a screen.",
+  "exclude": [
+    "node_modules",
+    "tests",
+    "tools"
+  ]
+}

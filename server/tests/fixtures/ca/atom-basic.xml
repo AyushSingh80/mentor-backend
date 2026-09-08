@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Down To Earth</title>
+  <link rel="self" type="application/atom+xml" href="https://www.downtoearth.org.in/stories.atom"/>
+  <link rel="alternate" type="text/html" href="https://www.downtoearth.org.in/"/>
+  <updated>2026-03-12T04:00:00Z</updated>
+  <id>https://www.downtoearth.org.in/</id>
+  <entry>
+    <title type="html">Groundwater extraction crosses 60 per cent in three states</title>
+    <link rel="self" href="https://www.downtoearth.org.in/api/entries/9001"/>
+    <link rel="alternate" type="text/html" href="https://www.downtoearth.org.in/water/groundwater-extraction-9001?utm_campaign=daily"/>
+    <id>tag:downtoearth.org.in,2026:9001</id>
+    <published>2026-03-12T06:15:00+05:30</published>
+    <updated>2026-03-12T07:00:00+05:30</updated>
+    <summary type="html">&lt;p&gt;The Central Ground Water Board&#39;s latest assessment covers 6,553 units.&lt;/p&gt;</summary>
+  </entry>
+  <entry>
+    <title>Forest Rights Act claims pending in 12 districts</title>
+    <link href="https://www.downtoearth.org.in/forests/fra-claims-9002"/>
+    <id>tag:downtoearth.org.in,2026:9002</id>
+    <updated>2026-03-11T12:00:00Z</updated>
+    <content type="html">&lt;p&gt;Individual forest rights claims remain undecided.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Coastal regulation zone notification challenged</title>
+    <link rel="self" href="https://www.downtoearth.org.in/api/entries/9003"/>
+    <link href="https://www.downtoearth.org.in/coasts/crz-notification-9003"/>
+    <id>tag:downtoearth.org.in,2026:9003</id>
+    <published>2026-03-10T09:00:00Z</published>
+  </entry>
+  <entry>
+    <title>Wetlands atlas updated for 2026</title>
+    <link href="https://www.downtoearth.org.in/wetlands/atlas-9004/comments"/>
+    <link rel="alternate" type="text/html" href="https://www.downtoearth.org.in/wetlands/atlas-9004"/>
+    <id>tag:downtoearth.org.in,2026:9004</id>
+    <published>2026-03-09T09:00:00Z</published>
+  </entry>
+</feed>

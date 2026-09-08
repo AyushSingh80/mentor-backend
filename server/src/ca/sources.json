@@ -1,0 +1,102 @@
+[
+  {
+    "id": "pib_releases",
+    "name": "PIB Press Releases",
+    "url": "https://www.pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3&reg=3",
+    "kind": "rss",
+    "papers": [
+      "gs2",
+      "gs3"
+    ],
+    "trust": "primary"
+  },
+  {
+    "id": "rbi_press",
+    "name": "RBI Press Releases",
+    "url": "https://www.rbi.org.in/pressreleases_rss.xml",
+    "kind": "rss",
+    "papers": [
+      "gs3"
+    ],
+    "trust": "primary"
+  },
+  {
+    "id": "sci_judgments",
+    "name": "Supreme Court of India",
+    "url": "https://www.sci.gov.in/",
+    "kind": "index",
+    "papers": [
+      "gs2"
+    ],
+    "trust": "primary"
+  },
+  {
+    "id": "tribal_affairs",
+    "name": "Ministry of Tribal Affairs",
+    "url": "https://tribal.nic.in/WhatsNew.aspx",
+    "kind": "index",
+    "papers": [
+      "gs1",
+      "gs2",
+      "anthro_p2"
+    ],
+    "trust": "primary"
+  },
+  {
+    "id": "prs_billtrack",
+    "name": "PRS Legislative Research",
+    "url": "https://prsindia.org/billtrack",
+    "kind": "index",
+    "papers": [
+      "gs2"
+    ],
+    "trust": "secondary"
+  },
+  {
+    "id": "hindu_environment",
+    "name": "The Hindu \u2014 Energy and Environment",
+    "url": "https://www.thehindu.com/sci-tech/energy-and-environment/feeder/default.rss",
+    "kind": "rss",
+    "papers": [
+      "gs1",
+      "gs3"
+    ],
+    "trust": "secondary"
+  },
+  {
+    "id": "hindu_national",
+    "name": "The Hindu \u2014 National",
+    "url": "https://www.thehindu.com/news/national/feeder/default.rss",
+    "kind": "rss",
+    "papers": [
+      "gs1",
+      "gs2",
+      "gs3"
+    ],
+    "trust": "secondary"
+  },
+  {
+    "id": "hindu_editorial",
+    "name": "The Hindu \u2014 Editorial",
+    "url": "https://www.thehindu.com/opinion/editorial/feeder/default.rss",
+    "kind": "rss",
+    "papers": [
+      "gs2",
+      "gs3",
+      "essay"
+    ],
+    "trust": "secondary"
+  },
+  {
+    "id": "ie_explained",
+    "name": "Indian Express \u2014 Explained",
+    "url": "https://indianexpress.com/section/explained/feed/",
+    "kind": "rss",
+    "papers": [
+      "gs1",
+      "gs2",
+      "gs3"
+    ],
+    "trust": "secondary"
+  }
+]

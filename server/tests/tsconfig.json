@@ -1,0 +1,13 @@
+{
+  "//": "The root tsconfig has rootDir 'src' and includes only src/**, so `tsc -p tsconfig.json` never sees the tests. This project mirrors app/tests/tsconfig.json so the test sources are typechecked too.",
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": "..",
+    "noEmit": true
+  },
+  "include": ["**/*.ts", "../src/**/*.ts"],
+  "exclude": []
+}

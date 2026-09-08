@@ -1,0 +1,13 @@
+{
+  "//": "Tests run under Node, not React Native. Keeping Node's globals out of the app's own typecheck prevents accidentally using Node APIs in app code, where they do not exist.",
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "noEmit": true
+  },
+  "//tools": "The CLIs in `tools/` are Node programs too, so they are typechecked here rather than in the app's config, which has no Node globals and would reject `node:fs` outright.",
+  "include": ["**/*.ts", "../src/**/*.ts", "../tools/**/*.ts"],
+  "exclude": []
+}
