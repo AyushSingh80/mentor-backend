@@ -14,3 +14,9 @@ node_modules/
 
 # Machine-specific SDK path. Written by the build, differs per machine.
 app/android/local.properties
+
+# Android signing keystore. Kept OUT of the repo so the repo can be public.
+# Backed up at ~/upsc-mentor-keystore-backup/ — read the README there before
+# deleting it: losing it means the only way to install a new build is to
+# uninstall first, which wipes the app's database.
+app/android/app/debug.keystore
