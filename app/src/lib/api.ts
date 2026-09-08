@@ -35,6 +35,24 @@ async function requireConfig(): Promise<{ baseUrl: string; token: string }> {
 const DEFAULT_TIMEOUT_MS = 8000;
 
 /**
+ * The health check gets its own, much longer budget.
+ *
+ * Eight seconds is right for every other small call and wrong for this one. A
+ * free host sleeps when idle and takes 30-60 seconds to wake, so the FIRST ping
+ * of the day legitimately takes longer than any request that follows it — and
+ * `checkHealth` is what onboarding validates the server URL with. Under the
+ * short budget that failure reads as "Server did not respond within 8s", which
+ * a person correctly interprets as "I typed the URL wrong": they retype a
+ * correct URL, fail again, and conclude the app is broken.
+ *
+ * Sixty seconds because that is the far end of a cold start, not a guess at a
+ * network. A host that is genuinely unreachable still fails — it just takes a
+ * minute to say so, which is the right trade for the one call whose slow path
+ * is normal rather than exceptional.
+ */
+const HEALTH_TIMEOUT_MS = 60_000;
+
+/**
  * fetch with a hard timeout.
  *
  * Without this, an unreachable-but-not-refused host (captive portal, flaky
@@ -122,7 +140,11 @@ export async function checkHealth(
   const url = baseUrl ?? (await getServerBaseUrl());
   if (!url) throw new ApiError('No server URL configured.');
 
-  const res = await fetchWithTimeout(`${url.replace(/\/+$/, '')}/health`, { signal });
+  const res = await fetchWithTimeout(
+    `${url.replace(/\/+$/, '')}/health`,
+    { signal },
+    HEALTH_TIMEOUT_MS,
+  );
   if (!res.ok) throw new ApiError(`Health check failed (${res.status})`, res.status);
   return (await res.json()) as HealthResponse;
 }
